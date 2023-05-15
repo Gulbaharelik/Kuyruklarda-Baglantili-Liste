@@ -1,31 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*
-	4.SORU
-Kuyruklarýn baðlantýlý liste uygulamasýný gösteren bir program yazýnýz. 
-a) Ekleme, silme ve görüntüleme iþlemleri deðer döndürmeyen fonksiyon olarak tanýmlayýn.
-b) Ekleme, silme ve görüntüleme gibi tüm iþlemleri kullanýcýdan isteyin.
-c) Girilen seçeneðe göre switch ifadesini kullanarak ilgili fonksiyona eriþin.	
-
-*/
-
-// Kuyruk elemanlarý için düðüm yapýsý tanýmlamasý
+// Kuyruk elemanlarÄ± iÃ§in dÃ¼ÄŸÃ¼m yapÄ±sÄ± tanÄ±mlamasÄ±
 struct Dugum {
    int veri;
    struct Dugum* next;
 };
 
-// Yeni bir kuyruk oluþturma
-struct Dugum* front = NULL; // Baþtaki düðümün adresini tutar
-struct Dugum* rear = NULL; // Kuyruk sonundaki düðümün adresini tutar
+// Yeni bir kuyruk oluÅŸturma
+struct Dugum* front = NULL; // BaÅŸtaki dÃ¼ÄŸÃ¼mÃ¼n adresini tutar
+struct Dugum* rear = NULL; // Kuyruk sonundaki dÃ¼ÄŸÃ¼mÃ¼n adresini tutar
 
-// Kuyrukta eleman var mý kontrolü yapma : Bunun kullanýlma nedeni kuyrukta eleman olmadýðý durumda hata meydana gelmemesi için
+// Kuyrukta eleman var mÄ± kontrolÃ¼ yapma : Bunun kullanÄ±lma nedeni kuyrukta eleman olmadÄ±ÄŸÄ± durumda hata meydana gelmemesi iÃ§in
 int isEmpty() {
    return (front == NULL);
 }
 
-// Kuyruða eleman ekleme
+// KuyruÄŸa eleman ekleme
 void enQueue(int veri) {
    struct Dugum* newDugum = (struct Dugum*) malloc(sizeof(struct Dugum)); 
    newDugum->veri = veri;
@@ -38,7 +29,7 @@ void enQueue(int veri) {
    rear = newDugum;
 }
 
-// Kuyruktan eleman çýkarma
+// Kuyruktan eleman Ã§Ä±karma
 void deQueue() {
    if (isEmpty())
       return;
@@ -49,7 +40,7 @@ void deQueue() {
       rear = NULL;
 }
 
-// Kuyruk elemanlarýný ekrana yazdýrma
+// Kuyruk elemanlarÄ±nÄ± ekrana yazdÄ±rma
 void display() {
    struct Dugum* temp = front;
    while (temp != NULL) {
